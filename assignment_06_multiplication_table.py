@@ -52,6 +52,46 @@
 
 #
 # =============================================================================
-# YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
+# =============================================================================
+# PROGRAMMING FUNDAMENTALS — Assignment 6
+# Topic: Loops and Functions
+# =============================================================================
+
+# ==========================================
+
+# ==========================================
+def single_table(number):
+    print(f"\nMultiplication Table for {number}:")
+    for i in range(1, 13):
+        print(f"{number:2} x {i:2} = {number * i}")
+
+
+# ==========================================
+
+# ==========================================
+def tables_to_n(n):
+    for num in range(1, n + 1):
+        print(f"\nMultiplication Table for {num}:")
+        for i in range(1, 13):
+            print(f"{num:2} x {i:2} = {num * i}")
+        print("-" * 30)
+
+
+# ==========================================
+
+# ==========================================
+
+print("========== PART A: SINGLE TABLE ==========")
+number = int(input("Enter a number: "))
+single_table(number)
+
+print("\n========== PART B: TABLES FROM 1 TO N ==========")
+n = int(input("Enter a positive integer: "))
+
+if n <= 0:
+    print("Error: Please enter a positive integer.")
+else:
+    tables_to_n(n)
+
 # =============================================================================
 
