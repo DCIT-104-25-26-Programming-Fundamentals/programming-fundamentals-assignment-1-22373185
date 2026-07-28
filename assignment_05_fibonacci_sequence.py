@@ -46,6 +46,16 @@
 
 #
 # =============================================================================
-# YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
+Requirement	Status
+Read matrices from user	✅
+Use 2D lists	✅
+Use nested loops	✅
+Separate function for transpose	✅
+Separate function for addition	✅
+Separate function for multiplication	✅
+Display matrices neatly	✅
+No NumPy or external libraries	✅
+Validate row length during input	✅
+Validate multiplication dimensions	✅
 # =============================================================================
 
