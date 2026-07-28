@@ -57,6 +57,146 @@
 
 #
 # =============================================================================
-# YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
+# ==========================================
+# Matrix Operations
+# ==========================================
+
+# Function to read a matrix
+def read_matrix(rows, cols):
+    matrix = []
+    print(f"Enter the {rows} x {cols} matrix:")
+    for i in range(rows):
+        while True:
+            row = list(map(int, input(f"Enter row {i + 1}: ").split()))
+            if len(row) == cols:
+                matrix.append(row)
+                break
+            else:
+                print(f"Please enter exactly {cols} values.")
+    return matrix
+
+
+# Function to display a matrix neatly
+def display_matrix(matrix):
+    for row in matrix:
+        for value in row:
+            print(f"{value:5}", end="")
+        print()
+
+
+# ==========================================
+# PART A - Transpose
+# ==========================================
+def transpose_matrix(matrix):
+    rows = len(matrix)
+    cols = len(matrix[0])
+
+    transpose = []
+
+    for j in range(cols):
+        new_row = []
+        for i in range(rows):
+            new_row.append(matrix[i][j])
+        transpose.append(new_row)
+
+    return transpose
+
+
+# ==========================================
+#
+# ==========================================
+def add_matrices(matrix1, matrix2):
+    rows = len(matrix1)
+    cols = len(matrix1[0])
+
+    result = []
+
+    for i in range(rows):
+        row = []
+        for j in range(cols):
+            row.append(matrix1[i][j] + matrix2[i][j])
+        result.append(row)
+
+    return result
+
+
+# ==========================================
+#
+# ==========================================
+def multiply_matrices(A, B):
+    rowsA = len(A)
+    colsA = len(A[0])
+    colsB = len(B[0])
+
+    result = []
+
+    for i in range(rowsA):
+        row = []
+        for j in range(colsB):
+            total = 0
+            for k in range(colsA):
+                total += A[i][k] * B[k][j]
+            row.append(total)
+        result.append(row)
+
+    return result
+
+
+# ==========================================
+#
+# ===============
+
+print("========== PART A: TRANSPOSE ==========")
+rows = int(input("Enter number of rows: "))
+cols = int(input("Enter number of columns: "))
+
+matrix = read_matrix(rows, cols)
+
+print("\nOriginal Matrix:")
+display_matrix(matrix)
+
+print("\nTransposed Matrix:")
+display_matrix(transpose_matrix(matrix))
+
+
+print("\n========== PART B: MATRIX ADDITION ==========")
+rows = int(input("Enter number of rows: "))
+cols = int(input("Enter number of columns: "))
+
+print("\nFirst Matrix")
+matrix1 = read_matrix(rows, cols)
+
+print("\nSecond Matrix")
+matrix2 = read_matrix(rows, cols)
+
+sum_matrix = add_matrices(matrix1, matrix2)
+
+print("\nSum of the Matrices:")
+display_matrix(sum_matrix)
+
+
+print("\n========== PART C: MATRIX MULTIPLICATION ==========")
+
+rowsA = int(input("Enter number of rows for Matrix A: "))
+colsA = int(input("Enter number of columns for Matrix A: "))
+
+A = read_matrix(rowsA, colsA)
+
+rowsB = int(input("Enter number of rows for Matrix B: "))
+colsB = int(input("Enter number of columns for Matrix B: "))
+
+while rowsB != colsA:
+    print("\nMatrix multiplication is not possible.")
+    print("The number of rows in Matrix B must equal the number of columns in Matrix A.")
+    rowsB = int(input("Re-enter number of rows for Matrix B: "))
+    colsB = int(input("Enter number of columns for Matrix B: "))
+
+B = read_matrix(rowsB, colsB)
+
+product = multiply_matrices(A, B)
+
+print("\nProduct of Matrix A and Matrix B:")
+display_matrix(product)
+
 # =============================================================================
 
